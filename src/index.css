@@ -1,0 +1,506 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --text: #64748b;
+  --bg-footer: #0f172a;
+}
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+.container {
+  padding: 2rem 6rem;
+  background: #000000;
+}
+nav {
+  padding: 2rem 0;
+  min-width: 100vw;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar .kiri {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.navbar ul li,
+footer .bawah ul li {
+  display: inline-block;
+  margin-right: 3rem;
+}
+.navbar ul li a,
+.navbar .kanan button:hover,
+.typeFilm,
+.genre,
+.genre ul li a,
+footer ul li a,
+footer .kanan,
+footer .bawah,
+.home,
+.detail,
+.typeFilm .film-wrapper a {
+  color: #fff;
+}
+.navbar ul li a:active,
+.navbar ul li a:hover,
+footer ul li a:hover,
+footer ul li a:active {
+  color: #ff0000;
+}
+.navbar .kanan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--text);
+}
+.navbar .kanan button,
+.pencarian button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+}
+.navbar .kanan input,
+.pencarian input {
+  padding: 12px 4px;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  background: none;
+  color: #fff;
+}
+.home,
+.typeFilm,
+.detail {
+  padding-top: 7rem;
+}
+.home .content {
+  padding: 2rem 6rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+.home h1,
+.detail h1 {
+  font-size: 4rem;
+}
+.home .rate,
+.detail .rate {
+  border: #fff 1px solid;
+  border-radius: 10rem;
+  padding: 3px 7px;
+  margin: 1rem 0;
+  width: 22px;
+}
+.star {
+  color: gold;
+  fill: gold;
+}
+.scor {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+}
+.home p {
+  width: 50%;
+  line-height: 2rem;
+  padding-bottom: 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
+}
+.home .artis,
+.detail .artis {
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
+.home .artis span,
+.detail .artis span {
+  font-size: 1rem;
+  color: var(--text);
+}
+.home button,
+.typeFilm button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 12px;
+  background: #ff0000;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.home button:hover,
+.typeFilm button:hover {
+  background: #b30101;
+}
+.typeFilm-head {
+  padding-bottom: 2rem;
+}
+.typeFilm-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+.typeFilm .film-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 4rem;
+}
+.typeFilm .film-wrapper h3 {
+  padding: 0.7rem 0;
+}
+.genre {
+  padding-bottom: 5rem;
+}
+.genre h1,
+.typeFilm h1 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+.genre ul {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 1rem;
+}
+.genre ul li {
+  padding: 12px 1rem;
+  border-radius: 3rem;
+  border: 1px solid var(--text);
+  font-size: 1rem;
+}
+.genre ul li a:hover {
+  color: #ff0000;
+}
+
+.detail {
+  display: flex;
+  gap: 2rem;
+}
+.detail .content {
+  padding: 2rem 6rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+.detail p {
+  width: 70%;
+  line-height: 2rem;
+  padding-bottom: 2rem;
+}
+.carousel-btn {
+  display: flex;
+  gap: 0.7rem;
+}
+.carousel-btn button {
+  padding: 12px 24px;
+}
+.dropdown {
+  padding: 4px 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  background: none;
+  border: none;
+  outline: none;
+  text-transform: capitalize;
+}
+.dropdown option {
+  background: #000;
+}
+.pencarian {
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+  border-bottom: 2px solid var(--text);
+}
+.pencarian button {
+  background: none;
+  color: var(--text);
+}
+.pencarian button:hover {
+  background: none;
+  color: #fff;
+}
+.pencarian input {
+  width: 60%;
+}
+
+.footer {
+  background: var(--bg-footer);
+}
+footer .kiri {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 2rem;
+}
+footer ul li {
+  margin: 1.5rem 0;
+}
+footer .kanan .footer-img {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0 2rem;
+  width: 60%;
+}
+footer .kanan p {
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+}
+.warna {
+  color: #000;
+  margin-right: 1rem;
+  fill: #fff;
+  width: 2rem;
+  height: 2rem;
+}
+.warna:hover {
+  color: var(--text);
+  fill: #fff;
+}
+footer .bawah {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .bawah-img {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.menu-nav {
+  display: none;
+}
+
+/* tablet */
+@media (max-width: 835px) {
+  .container {
+    padding: 1rem 2rem;
+  }
+  .navbar .kiri {
+    gap: 0;
+  }
+  .navbar .kiri img {
+    width: 70%;
+  }
+  .navbar ul {
+    margin: -2rem;
+  }
+  .navbar ul li {
+    margin-right: 23px;
+  }
+  .navbar ul li a {
+    font-size: 1rem;
+  }
+  .navbar .kanan {
+    width: 20%;
+  }
+  .typeFilm {
+    padding-top: 7rem;
+  }
+  .home,
+  .detail {
+    padding-top: 6rem;
+  }
+  .home .content {
+    padding: 2rem;
+  }
+  .typeFilm .film-wrapper {
+    overflow-x: auto;
+    width: 100%;
+  }
+  .genre {
+    padding: 1rem 2rem 5rem;
+  }
+  .genre .scroll-genre {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .detail img {
+    width: 17rem;
+  }
+  .detail h1 {
+    font-size: 2rem;
+  }
+  .detail p {
+    width: 100%;
+  }
+
+  footer ul {
+    padding: 0;
+  }
+  footer .kiri {
+    justify-content: space-between;
+    padding: 2rem 0;
+    gap: 0;
+  }
+  footer .kanan .footer-img {
+    gap: 1rem;
+    padding: 2rem 0 2rem;
+    width: 40%;
+  }
+  .warna {
+    margin-right: 0.4rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .dropdown option {
+    font-size: 1rem;
+  }
+}
+/* mobile phone */
+@media (max-width: 576px) {
+  .container {
+    padding: 0rem 1rem;
+  }
+  nav {
+    background: #000;
+  }
+  .navbar {
+    padding: 0 2rem;
+    position: relative;
+  }
+  .navbar .kanan {
+    border: none;
+  }
+  .navbar ul,
+  .navbar input {
+    display: none;
+  }
+  .navbar ul.active,
+  .navbar .kanan.active {
+    display: block;
+    right: 0;
+  }
+
+  .navbar ul {
+    position: absolute;
+    top: 140%;
+    right: -100%;
+    background-color: rgba(0, 0, 0);
+    width: 15rem;
+    height: 100vh;
+    padding-top: 5rem;
+    z-index: -1;
+  }
+  .navbar ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+  }
+  .navbar ul li a {
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+  }
+
+  .home .content {
+    padding: 1rem;
+  }
+  .home h1 {
+    font-size: 1.5rem;
+  }
+  .home p {
+    width: 90%;
+  }
+  .typeFilm {
+    padding-top: 8rem;
+  }
+  .genre h1,
+  .typeFilm h1 {
+    font-size: 1.3rem;
+  }
+  .home button,
+  .typeFilm button {
+    padding: 8px 12px;
+  }
+  .genre {
+    padding: 1rem 2rem 4rem;
+  }
+  .typeFilm .film-wrapper {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .film {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .film img {
+    width: 110%;
+  }
+  .detail {
+    flex-direction: column;
+    gap: 1rem;
+    background: #000;
+  }
+  .detail img {
+    width: 20rem;
+  }
+  .detail h1 {
+    font-size: 1rem;
+  }
+  .detail-plot {
+    padding-top: 0;
+  }
+  footer .kiri {
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+  }
+  footer .bawah {
+    flex-direction: column;
+    font-size: 0.9rem;
+  }
+  footer .bawah-img {
+    gap: 1rem;
+  }
+  footer .bawah-img img {
+    width: 80%;
+  }
+  .menu-nav {
+    display: block;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  .menu-img {
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+  }
+  .carousel,
+  .similarFilm {
+    padding-top: 0;
+  }
+}

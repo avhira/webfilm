@@ -65,7 +65,7 @@ Dalam komponen Anda, impor icon dari react-feather dan gunakan sesuai kebutuhan:
 import { IconName } from 'react-feather';
 ```
 
-### - Gunakan Ikon
+### - Gunakan Icon
 Gunakan icon tersebut di dalam JSX Anda:
 
 ```bash
@@ -117,7 +117,6 @@ export default App;
 Buat komponen-komponen untuk halaman masing-masing.
 
 ### Langkah 4: Menjalankan Aplikasi
-### - Jalankan Aplikasi
 
 ```bash
 npm run dev

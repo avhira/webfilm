@@ -74,7 +74,7 @@ Gunakan icon tersebut di dalam JSX Anda:
 
 ### Langkah 3: Menggunakan react-router-dom untuk Navigasi
 ### - konfigurasi Router
-Dalam src folder, buat file AppRouter.js untuk mengatur konfigurasi rute aplikasi:
+Dalam src folder, buat file App.jsx untuk mengatur konfigurasi rute aplikasi:
 
 ```bash
 import Footer from './components/Footer';

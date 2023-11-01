@@ -3,92 +3,131 @@
 :root {
   --text: #64748b;
   --bg-footer: #0f172a;
+  --link-active: #ff0000;
 }
 * {
   font-family: 'Montserrat', sans-serif;
+  border: none;
+  outline: none;
   margin: 0;
-  text-decoration: none;
+  padding: 0;
   list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: #fff;
 }
 
 .container {
   padding: 2rem 6rem;
   background: #000000;
 }
+
 nav {
-  padding: 2rem 0;
-  min-width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  padding: 1.4rem 7%;
   position: fixed;
-  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
-
-.navbar {
+nav img {
+  width: 10rem;
+}
+nav ul {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  gap: 3rem;
+  font-size: 1.5rem;
 }
-.navbar .kiri {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
+nav ul li a {
+  font-weight: 500;
 }
-
-.navbar ul li,
-footer .bawah ul li {
-  display: inline-block;
-  margin-right: 3rem;
+nav ul li a::after {
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--link-active);
+  transform: scaleX(0);
+  transition: 0.2s linear;
 }
-.navbar ul li a,
-.navbar .kanan button:hover,
-.typeFilm,
-.genre,
-.genre ul li a,
-footer ul li a,
-footer .kanan,
-footer .bawah,
-.home,
-.detail,
-.typeFilm .film-wrapper a {
-  color: #fff;
+nav ul li a:hover::after {
+  transform: scaleX(0.5);
 }
-.navbar ul li a:active,
-.navbar ul li a:hover,
-footer ul li a:hover,
-footer ul li a:active {
-  color: #ff0000;
-}
-.navbar .kanan {
+.nav-search {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--text);
-  gap: 0.5rem;
-  border-bottom: 2px solid var(--text);
+  gap: 1rem;
 }
-.navbar .kanan button,
-.pencarian button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text);
-}
-.navbar .kanan input,
-.pencarian input {
-  padding: 12px 4px;
-  outline: none;
-  border: none;
+.nav-search input {
+  padding: 12px 24px;
+  border-radius: 10px;
+  color: #000;
   font-size: 1rem;
-  background: none;
-  color: #fff;
 }
+
+/* Hamburger */
+.menu-toggle {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-toggle input {
+  width: 100%;
+  height: 28px;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background-color: var(--text);
+  border-radius: 4px;
+  margin: 0.4rem 0;
+  display: block;
+  transition: all ease 0.4s;
+}
+
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:last-child {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.menu-toggle input:checked ~ span:last-child {
+  transform: rotate(-45deg);
+}
+
 .home,
 .typeFilm,
 .detail {
-  padding-top: 7rem;
+  padding-top: 5.5rem;
 }
-.home .content {
-  padding: 2rem 6rem;
+.home {
+  background-size: cover;
+  background-position: center;
+}
+.home .home-content {
   background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 6rem;
 }
 .home h1,
 .detail h1 {
@@ -100,11 +139,11 @@ footer ul li a:active {
   border-radius: 10rem;
   padding: 3px 7px;
   margin: 1rem 0;
-  width: 22px;
+  width: 2.5rem;
 }
 .star {
-  color: gold;
-  fill: gold;
+  color: #ffd700;
+  fill: #ffd700;
 }
 .scor {
   display: flex;
@@ -141,7 +180,6 @@ footer ul li a:active {
   gap: 1rem;
   padding: 12px;
   background: #ff0000;
-  color: #fff;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -149,6 +187,7 @@ footer ul li a:active {
 .typeFilm button:hover {
   background: #b30101;
 }
+
 .typeFilm-head {
   padding-bottom: 2rem;
 }
@@ -256,6 +295,7 @@ footer .kiri {
 footer ul li {
   margin: 1.5rem 0;
 }
+
 footer .kanan .footer-img {
   display: flex;
   flex-direction: column;
@@ -268,20 +308,22 @@ footer .kanan p {
   padding-bottom: 1rem;
 }
 .warna {
-  color: #000;
+  fill: var(--text);
   margin-right: 1rem;
-  fill: #fff;
   width: 2rem;
   height: 2rem;
 }
 .warna:hover {
-  color: var(--text);
   fill: #fff;
 }
 footer .bawah {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+footer .bawah ul li {
+  display: inline-block;
+  margin-right: 3rem;
 }
 footer .bawah-img {
   display: flex;
@@ -297,24 +339,10 @@ footer .bawah-img {
   .container {
     padding: 1rem 2rem;
   }
-  .navbar .kiri {
-    gap: 0;
+  nav ul {
+    gap: 3rem;
   }
-  .navbar .kiri img {
-    width: 70%;
-  }
-  .navbar ul {
-    margin: -2rem;
-  }
-  .navbar ul li {
-    margin-right: 23px;
-  }
-  .navbar ul li a {
-    font-size: 1rem;
-  }
-  .navbar .kanan {
-    width: 20%;
-  }
+
   .typeFilm {
     padding-top: 7rem;
   }
@@ -378,44 +406,35 @@ footer .bawah-img {
   .container {
     padding: 0rem 1rem;
   }
-  nav {
-    background: #000;
-  }
-  .navbar {
-    padding: 0 2rem;
-    position: relative;
-  }
-  .navbar .kanan {
-    border: none;
-  }
-  .navbar ul,
-  .navbar input {
-    display: none;
-  }
-  .navbar ul.active,
-  .navbar .kanan.active {
-    display: block;
-    right: 0;
-  }
 
-  .navbar ul {
-    position: absolute;
-    top: 140%;
-    right: -100%;
-    background-color: rgba(0, 0, 0);
-    width: 15rem;
-    height: 100vh;
-    padding-top: 5rem;
-    z-index: -1;
-  }
-  .navbar ul li {
-    display: flex;
+  nav ul {
+    position: fixed;
+    background-color: rgba(20, 54, 66, 1);
+    inset: 0;
+    height: 45%;
+    width: 100%;
+    padding: 6rem 0 1rem;
+    gap: 1rem;
     flex-direction: column;
-    gap: 10rem;
+    align-items: center;
+    justify-content: space-around;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all ease 0.6s;
   }
-  .navbar ul li a {
-    margin: 1.5rem 0;
-    font-size: 1.5rem;
+  nav ul.slide {
+    box-shadow: 0 8px 8px rgba(15, 139, 141, 0.5);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  nav img {
+    width: 8rem;
+  }
+  nav .menu-toggle {
+    display: block;
+  }
+  nav .nav-search {
+    display: none;
   }
 
   .home .content {

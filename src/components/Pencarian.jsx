@@ -41,31 +41,31 @@ export default function Pencarian() {
   };
 
   return (
-    <div className="typeFilm container">
-      <div className="pencarian">
-        <button>
+    <>
+      <div className="typeFilm container">
+        <div className="nav-search" style={{ justifyContent: 'center', padding: '2rem 0 3rem' }}>
           <Search />
-        </button>
-        <input type="search" placeholder="Cari Film ..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onKeyPress={handleKeyPress} />
+          <input type="search" style={{ width: '50%' }} placeholder="Cari Film ..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onKeyPress={handleKeyPress} />
+        </div>
+        <div className="film-wrapper" style={{ flexWrap: 'wrap', gap: '3rem 1.5rem' }}>
+          {filteredData.length === 0 ? (
+            <div style={{ display: 'grid', placeItems: 'center' }}>
+              <h1>Film Tidak Ada</h1>
+              <img src={logo} alt="not found" style={{ width: '20rem', paddingTop: '2rem' }} />
+            </div>
+          ) : (
+            filteredData.map((data, i) => (
+              <Link to={`/tayang/detail/${data.id}`} className="card-film film" key={i}>
+                <img src={data.image} alt={data.title} />
+                <h3>{data.title}</h3>
+                <p>
+                  {data.date} | {data.time}
+                </p>
+              </Link>
+            ))
+          )}
+        </div>
       </div>
-      <div className="film-wrapper" style={{ flexWrap: 'wrap', gap: '3rem 1.5rem' }}>
-        {filteredData.length === 0 ? (
-          <div style={{ display: 'grid', placeItems: 'center' }}>
-            <h1>Film Tidak Ada</h1>
-            <img src={logo} alt="not found" style={{ width: '20rem', paddingTop: '2rem' }} />
-          </div>
-        ) : (
-          filteredData.map((data, i) => (
-            <Link to={`/tayang/detail/${data.id}`} className="card-film film" key={i}>
-              <img src={data.image} alt={data.title} />
-              <h3>{data.title}</h3>
-              <p>
-                {data.date} | {data.time}
-              </p>
-            </Link>
-          ))
-        )}
-      </div>
-    </div>
+    </>
   );
 }

@@ -54,18 +54,23 @@ export default function Detail() {
       <section id="detail" className="detail" style={{ backgroundImage: screenWidth > 578 ? `url(${bgHome})` : '', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         {content}
       </section>
-      <div className="typeFilm container detail-plot">
-        <div className="typeFilm-title">
-          <h1>Plot</h1>
+
+      <div className="container detail-top" style={{ display: 'grid', gap: '3rem' }}>
+        <div>
+          <div className="typeFilm-title">
+            <h1>Plot</h1>
+          </div>
+          <div className="film-wrapper">
+            <p style={{ lineHeight: '2rem' }}>{item.description}</p>
+          </div>
         </div>
-        <div className="film-wrapper">
-          <p style={{ lineHeight: '2rem' }}>{item.description}</p>
-        </div>
-        <div className="typeFilm-title">
-          <h1>Videos</h1>
-        </div>
-        <div className="film-wrapper">
-          <img src={imgVid} alt="video" width="90%" />
+        <div className="bottom">
+          <div className="typeFilm-title">
+            <h1>Videos</h1>
+          </div>
+          <div className="film-wrapper">
+            <img src={imgVid} alt="video" width="90%" />
+          </div>
         </div>
       </div>
       <FilmSerupa />

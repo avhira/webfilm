@@ -27,9 +27,9 @@ export default function FilmSerupa() {
           </button>
         </Link>
       </div>
-      <div className="film-wrapper">
+      <div className="film-wrapper scroll" style={{ textAlign: 'center' }}>
         {similarMovie.map((data, i) => (
-          <div className="card-film" key={i}>
+          <div className="poster" key={i}>
             <img src={data.image} alt={data.title} />
             <h3>{data.title}</h3>
             <p>
@@ -40,9 +40,5 @@ export default function FilmSerupa() {
       </div>
     </>
   );
-  return (
-    <section id="typeFilm" className="typeFilm container similarFilm">
-      {comp()}
-    </section>
-  );
+  return <section className="typeFilm container similarFilm">{comp()}</section>;
 }

@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <section id="home" className="home">
-        <div style={{ backgroundImage: `url(${bgHome})` }}>
+        <div className="bg-home" style={{ backgroundImage: `url(${bgHome})` }}>
           <div className="home-content">
             <p>Adventure - Action - History</p>
             <h1>Indiana Jones and The Dial of Destiny</h1>

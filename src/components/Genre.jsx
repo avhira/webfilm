@@ -21,9 +21,9 @@ export default function Genre() {
   );
 
   return (
-    <section id="genre" className="genre container">
+    <section id="genre" className="genre container ">
       <h1>Genre Tersedia</h1>
-      <div className="scroll-genre">
+      <div className="scroll">
         {genresComp()}
         {genresComp()}
         {genresComp()}

@@ -32,13 +32,15 @@ export default function Navbar() {
             Mendatang
           </Link>
         </li>
+        <li>
+          <Link to="/pencarian">
+            <div className="nav-search">
+              <Search />
+              <input type="search" placeholder="Cari Film ..." readOnly />
+            </div>
+          </Link>
+        </li>
       </ul>
-      <Link to="/pencarian">
-        <div className="nav-search">
-          <Search />
-          <input type="search" placeholder="Cari Film ..." readOnly />
-        </div>
-      </Link>
       <div className="menu-toggle">
         <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} />
         <span></span>

@@ -32,13 +32,14 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 10;
 }
 nav img {
   width: 10rem;
 }
 nav ul {
   display: flex;
+  align-items: center;
   gap: 3rem;
   font-size: 1.5rem;
 }
@@ -56,6 +57,9 @@ nav ul li a::after {
 nav ul li a:hover::after {
   transform: scaleX(0.5);
 }
+ul li:last-child a:hover::after {
+  transform: scaleX(0);
+}
 .nav-search {
   display: flex;
   align-items: center;
@@ -65,7 +69,11 @@ nav ul li a:hover::after {
   padding: 12px 24px;
   border-radius: 10px;
   color: #000;
+  background: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
+}
+.pencarian input {
+  width: 50%;
 }
 
 /* Hamburger */
@@ -117,13 +125,13 @@ nav ul li a:hover::after {
 }
 
 .home,
-.typeFilm,
 .detail {
   padding-top: 5.5rem;
 }
-.home {
+.bg-home {
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .home .home-content {
   background: rgba(0, 0, 0, 0.5);
@@ -167,6 +175,7 @@ nav ul li a:hover::after {
 .detail .artis {
   font-weight: 500;
   padding-bottom: 2rem;
+  line-height: 2rem;
 }
 .home .artis span,
 .detail .artis span {
@@ -176,6 +185,7 @@ nav ul li a:hover::after {
 .home button,
 .typeFilm button {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   padding: 12px;
@@ -187,33 +197,48 @@ nav ul li a:hover::after {
 .typeFilm button:hover {
   background: #b30101;
 }
-
-.typeFilm-head {
-  padding-bottom: 2rem;
+.typeFilm {
+  display: flex;
+  flex-direction: column;
+}
+.pt {
+  padding-top: 8rem;
+}
+.ptt {
+  padding-top: 9rem;
+  padding-bottom: 3rem;
+}
+.wrapper-typefilm {
+  margin: 2rem 0;
 }
 .typeFilm-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 0;
 }
-.typeFilm .film-wrapper {
+.film {
+  flex-wrap: wrap;
+}
+.film-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  padding-bottom: 4rem;
+  gap: 3rem 1rem;
+  padding-top: 2rem;
 }
-.typeFilm .film-wrapper h3 {
+.film-wrapper h3 {
   padding: 0.7rem 0;
 }
-.genre {
-  padding-bottom: 5rem;
+.film-wrapper img {
+  border-radius: 8px;
 }
 .genre h1,
 .typeFilm h1 {
   font-size: 2rem;
   padding-bottom: 1rem;
+}
+.genre {
+  padding-bottom: 5rem;
 }
 .genre ul {
   display: flex;
@@ -229,6 +254,7 @@ nav ul li a:hover::after {
 .genre ul li a:hover {
   color: #ff0000;
 }
+/* ================================ */
 
 .detail {
   display: flex;
@@ -242,6 +268,9 @@ nav ul li a:hover::after {
   width: 70%;
   line-height: 2rem;
   padding-bottom: 2rem;
+}
+.detail-top {
+  padding-top: 3rem;
 }
 .carousel-btn {
   display: flex;
@@ -263,24 +292,14 @@ nav ul li a:hover::after {
 .dropdown option {
   background: #000;
 }
-.pencarian {
-  padding-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4rem;
-  border-bottom: 2px solid var(--text);
+
+.pencarian-notfound {
+  display: grid;
+  place-items: center;
 }
-.pencarian button {
-  background: none;
-  color: var(--text);
-}
-.pencarian button:hover {
-  background: none;
-  color: #fff;
-}
-.pencarian input {
-  width: 60%;
+.pencarian-notfound img {
+  width: 20rem;
+  margin: 4rem 0;
 }
 
 .footer {
@@ -330,8 +349,9 @@ footer .bawah-img {
   align-items: center;
   gap: 2rem;
 }
-.menu-nav {
-  display: none;
+.btn-mid {
+  display: grid;
+  place-items: center;
 }
 
 /* tablet */
@@ -340,36 +360,74 @@ footer .bawah-img {
     padding: 1rem 2rem;
   }
   nav ul {
-    gap: 3rem;
+    position: fixed;
+    background-color: rgba(58, 58, 58, 0.9);
+    left: 0;
+    right: 0;
+    top: 5.2rem;
+    height: 40%;
+    width: 100%;
+    gap: 1rem;
+    padding: 2rem 0 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all ease 0.6s;
+  }
+  nav ul.slide {
+    box-shadow: 0 8px 8px rgba(255, 0, 0, 0.5);
+    opacity: 1;
+    transform: translateX(0);
   }
 
-  .typeFilm {
-    padding-top: 7rem;
+  nav img {
+    width: 8rem;
   }
-  .home,
-  .detail {
-    padding-top: 6rem;
+  nav .menu-toggle {
+    display: block;
   }
+
+  .home {
+    padding-top: 5rem;
+  }
+  .home .home-content {
+    padding: 2rem;
+  }
+
+  .home h1 {
+    font-size: 3rem;
+  }
+  .home p {
+    width: 100%;
+  }
+
+  .typeFilm-head,
+  .pencarian {
+    margin-top: 7rem;
+  }
+
+  .detail,
+  .detail-top {
+    padding-top: 5rem;
+  }
+
+  .detail .content,
   .home .content {
     padding: 2rem;
   }
-  .typeFilm .film-wrapper {
-    overflow-x: auto;
-    width: 100%;
-  }
-  .genre {
-    padding: 1rem 2rem 5rem;
-  }
-  .genre .scroll-genre {
+  .scroll {
     width: 100%;
     overflow-x: auto;
+    justify-content: start;
   }
+
   .detail {
     display: flex;
-    align-items: center;
-    gap: 1rem;
   }
   .detail img {
+    height: 60%;
     width: 17rem;
   }
   .detail h1 {
@@ -377,6 +435,9 @@ footer .bawah-img {
   }
   .detail p {
     width: 100%;
+  }
+  .bottom {
+    padding-bottom: 3rem;
   }
 
   footer ul {
@@ -388,9 +449,11 @@ footer .bawah-img {
     gap: 0;
   }
   footer .kanan .footer-img {
-    gap: 1rem;
-    padding: 2rem 0 2rem;
-    width: 40%;
+    gap: 0.5rem;
+    width: 70%;
+  }
+  footer .bawah-img img {
+    width: 80%;
   }
   .warna {
     margin-right: 0.4rem;
@@ -403,82 +466,42 @@ footer .bawah-img {
 }
 /* mobile phone */
 @media (max-width: 576px) {
-  .container {
-    padding: 0rem 1rem;
-  }
-
-  nav ul {
-    position: fixed;
-    background-color: rgba(20, 54, 66, 1);
-    inset: 0;
-    height: 45%;
-    width: 100%;
-    padding: 6rem 0 1rem;
-    gap: 1rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    opacity: 0;
-    transform: translateY(-100%);
-    transition: all ease 0.6s;
-  }
-  nav ul.slide {
-    box-shadow: 0 8px 8px rgba(15, 139, 141, 0.5);
-    opacity: 1;
-    transform: translateY(0);
-  }
-  nav img {
-    width: 8rem;
-  }
-  nav .menu-toggle {
-    display: block;
-  }
-  nav .nav-search {
-    display: none;
-  }
-
-  .home .content {
-    padding: 1rem;
+  .home .home-content {
+    padding: 1.5rem;
   }
   .home h1 {
     font-size: 1.5rem;
   }
-  .home p {
-    width: 90%;
-  }
-  .typeFilm {
-    padding-top: 8rem;
+  .home button,
+  .typeFilm button {
+    gap: 0.4rem;
   }
   .genre h1,
   .typeFilm h1 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   .home button,
   .typeFilm button {
     padding: 8px 12px;
   }
-  .genre {
-    padding: 1rem 2rem 4rem;
+  .film-wrapper h3,
+  .film-wrapper p {
+    font-size: 15px;
   }
-  .typeFilm .film-wrapper {
-    overflow-x: hidden;
-    width: 100%;
+
+  .poster img {
+    width: 9rem;
+    height: 11rem;
   }
-  .film {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-  }
-  .film img {
-    width: 110%;
-  }
+
   .detail {
     flex-direction: column;
     gap: 1rem;
     background: #000;
+  }
+  .detail .content {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
   }
   .detail img {
     width: 20rem;
@@ -486,40 +509,36 @@ footer .bawah-img {
   .detail h1 {
     font-size: 1rem;
   }
-  .detail-plot {
+  .detail-top {
     padding-top: 0;
   }
   footer .kiri {
     font-size: 0.8rem;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-between;
-    gap: 2px;
+    gap: 2rem;
   }
+
   footer .bawah {
-    flex-direction: column;
+    flex-direction: column-reverse;
     font-size: 0.9rem;
   }
   footer .bawah-img {
     gap: 1rem;
   }
-  footer .bawah-img img {
-    width: 80%;
+  footer .bawah-img p {
+    font-size: 0.7rem;
   }
-  .menu-nav {
-    display: block;
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
-  }
+
   .menu-img {
     color: #fff;
     width: 2rem;
     height: 2rem;
   }
-  .carousel,
-  .similarFilm {
-    padding-top: 0;
+  .pencarian input {
+    width: 80%;
+  }
+  .pencarian-notfound img {
+    width: 10rem;
   }
 }

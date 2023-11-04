@@ -20,7 +20,7 @@ const Carousel = ({ data }) => {
   };
 
   return (
-    <section id="Carousel" className="typeFilm container carousel">
+    <section className="typeFilm container carousel" style={{ paddingBottom: '0 0 6rem' }}>
       <div className="typeFilm-title">
         <h1>Dibintangi Oleh</h1>
         <div className="carousel-btn">
@@ -32,11 +32,11 @@ const Carousel = ({ data }) => {
           </button>
         </div>
       </div>
-      <div className="film-wrapper">
+      <div className="film-wrapper scroll" style={{ textAlign: 'center', paddingBottom: '3rem' }}>
         <div className="carousel-container">
           <div className="carousel" style={{ display: 'flex', gap: '1rem' }}>
             {itemsToShow.map((data, i) => (
-              <Link to={`/tayang`} className="card-film" key={i}>
+              <Link to={`/tayang`} className="poster" key={i}>
                 <img src={data.image} alt={data.title} />
                 <h3>{data.title}</h3>
                 <p>{data.date}</p>

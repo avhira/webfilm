@@ -34,7 +34,7 @@ export default function Terpopuler() {
   const filteredData = selectedGenre === 'all' ? data : data.filter((item) => item.genre === selectedGenre);
 
   return (
-    <div className="typeFilm container">
+    <div className="typeFilm container pt" style={{ gap: '3rem' }}>
       <div className="typeFilm-head">
         <h1>Terpopuler</h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -42,9 +42,9 @@ export default function Terpopuler() {
           <Dropdown genres={['all', 'adventure', 'horror', 'superhero', 'action']} onSelectGenre={setSelectedGenre} />
         </div>
       </div>
-      <div className="film-wrapper " style={{ flexWrap: 'wrap', gap: '3rem 1.5rem' }}>
+      <div className="film-wrapper film" style={{ textAlign: 'center' }}>
         {filteredData.map((data, i) => (
-          <Link to={`/terpopuler/detail/${data.id}`} className="card-film film" key={i}>
+          <Link to={`/terpopuler/detail/${data.id}`} className="poster" key={i}>
             <img src={data.image} alt={data.title} />
             <h3>{data.title}</h3>
             <p>
@@ -53,9 +53,11 @@ export default function Terpopuler() {
           </Link>
         ))}
       </div>
-      <button>
-        Lebih Banyak <RefreshCw />
-      </button>
+      <div className="btn-mid" style={{ paddingBottom: '2rem' }}>
+        <button>
+          Lebih Banyak <RefreshCw />
+        </button>
+      </div>
     </div>
   );
 }

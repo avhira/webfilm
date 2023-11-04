@@ -34,7 +34,7 @@ export default function TypeFilm() {
   ];
 
   const comp1 = () => (
-    <>
+    <div className="wrapper-typefilm">
       <div className="typeFilm-title">
         <h1>Sedang Tayang</h1>
         <Link to="/tayang">
@@ -43,9 +43,9 @@ export default function TypeFilm() {
           </button>
         </Link>
       </div>
-      <div className="film-wrapper">
+      <div className="film-wrapper scroll" style={{ textAlign: 'center' }}>
         {nowPlaying.map((data, i) => (
-          <Link to={`/tayang/detail/${data.id}`} className="card-film" key={i}>
+          <Link to={`/tayang/detail/${data.id}`} className="poster" key={i}>
             <img src={data.image} alt={data.title} />
             <h3>{data.title}</h3>
             <p>
@@ -54,10 +54,10 @@ export default function TypeFilm() {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
   const comp2 = () => (
-    <>
+    <div className="wrapper-typefilm">
       <div className="typeFilm-title">
         <h1>Terpopuler</h1>
         <Link to="/terpopuler">
@@ -66,9 +66,9 @@ export default function TypeFilm() {
           </button>
         </Link>
       </div>
-      <div className="film-wrapper">
+      <div className="film-wrapper scroll" style={{ textAlign: 'center' }}>
         {Trending.map((data, i) => (
-          <Link to={`/terpopuler/detail/${data.id}`} className="card-film" key={i}>
+          <Link to={`/terpopuler/detail/${data.id}`} className="poster" key={i}>
             <img src={data.image} alt={data.title} />
             <h3>{data.title}</h3>
             <p>
@@ -77,10 +77,10 @@ export default function TypeFilm() {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
   const comp3 = () => (
-    <>
+    <div className="wrapper-typefilm">
       <div className="typeFilm-title">
         <h1>Mendatang</h1>
         <Link to="/mendatang">
@@ -89,9 +89,9 @@ export default function TypeFilm() {
           </button>
         </Link>
       </div>
-      <div className="film-wrapper">
+      <div className="film-wrapper scroll" style={{ textAlign: 'center' }}>
         {comingSoon.map((data, i) => (
-          <Link to={`/mendatang/detail/${data.id}`} className="card-film" key={i}>
+          <Link to={`/mendatang/detail/${data.id}`} className="poster" key={i}>
             <img src={data.image} alt={data.title} />
             <h3>{data.title}</h3>
             <p>
@@ -100,10 +100,10 @@ export default function TypeFilm() {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
   return (
-    <section id="typeFilm" className="typeFilm container" style={{ paddingTop: '3rem' }}>
+    <section id="typeFilm" className="typeFilm container" style={{ paddingTop: '5rem' }}>
       {comp1()}
       {comp2()}
       {comp3()}
